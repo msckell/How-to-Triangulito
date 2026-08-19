@@ -141,8 +141,8 @@ flowchart TB
 
     subgraph COMPILER["COMPILER — connectivity is derived"]
         build["Graph builder<br/>validate, match, compose costs"]
-        graph[("Executable graph")]
-        build --> graph
+        execgraph[("Executable graph")]
+        build --> execgraph
     end
 
     subgraph ENGINE["ENGINE — the routing"]
@@ -157,7 +157,7 @@ flowchart TB
 
     tariffs -->|"flagged for review<br/>a human updates"| nodes
     nodes --> build
-    graph --> route
+    execgraph --> route
     market -->|"live, per query"| route
     route --> api
 
